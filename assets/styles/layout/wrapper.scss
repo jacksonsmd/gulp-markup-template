@@ -2,16 +2,4 @@
 	position: relative;
 	overflow: hidden;
 	width: 100%;
-
-	@include media('<tablet') {
-		background: #f00;
-	}
-	
-	h1 {
-		text-decoration: underline;
-		&:hover {
-			color: #f00;
-		}
-	}
-
 }

@@ -10,8 +10,10 @@ const imageop = require('gulp-image-optimization');
 const sourcemaps = require('gulp-sourcemaps');
 const iconfont = require('gulp-iconfont');
 const iconfontCss = require('gulp-iconfont-css');
+const gulpIf = require('gulp-if');
 const browserSync = require('browser-sync').create();
 const config = require('./gulpfile-config');
+const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development'; 
 
 gulp.task('server', function() {
 	browserSync.init({
@@ -24,13 +26,13 @@ gulp.task('server', function() {
 
 gulp.task('sass', function () {
 	return gulp.src(config.assets.sass)
-			.pipe(sourcemaps.init())
+			.pipe(gulpIf(isDevelopment, sourcemaps.init()))
 			.pipe(sass().on('error', sass.logError))
 			.pipe(autoprefixer({
 				browsers: ['last 6 versions'],
 				cascade: false
 			}))
-			.pipe(sourcemaps.write())
+			.pipe(gulpIf(isDevelopment, sourcemaps.write()))
 			.pipe(gulp.dest(config.production.css));
 });
 
