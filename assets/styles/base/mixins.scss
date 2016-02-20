@@ -1,0 +1,28 @@
+@mixin hideText() {
+	overflow: hidden;
+	text-indent: -9999px;
+}
+
+@mixin size($width, $height: $width) {
+	width: $width;
+	height: $height;
+}
+
+@mixin fontSmoothing($value:on){
+	@if $value == on{
+		-webkit-font-smoothing:antialiased;
+		-moz-osx-font-smoothing:grayscale;
+	}
+	@else{
+		-webkit-font-smoothing:subpixel-antialiased;
+		-moz-osx-font-smoothing:auto;
+	}
+}
+
+@mixin placeholder {
+	&::-webkit-input-placeholder {@content}
+	&::-moz-placeholder {opacity: 1; @content}
+	&:-moz-placeholder {@content}
+	&:-ms-input-placeholder {@content}
+	&.placeholder {@content}
+}

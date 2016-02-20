@@ -1,0 +1,4 @@
+// page init
+jQuery(function(){
+	
+});

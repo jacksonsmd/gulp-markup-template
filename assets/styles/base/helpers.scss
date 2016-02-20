@@ -1,0 +1,44 @@
+%listreset {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+%clearfix {
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
+
+%justify {
+	text-align: justify;
+	font-size: 1px;
+	line-height: 0px;
+
+	> * {
+		display: inline-block;
+		vertical-align: top;
+		text-align: left;
+		font-size: 12px;
+		line-height: 17px;
+	}
+
+	&:after {
+		content: '';
+		width: 100%;
+		display: inline-block;
+		vertical-align: top;
+	}
+}
+
+.clearfix {
+	@extend %clearfix;
+}
+
+.ellipsis {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
