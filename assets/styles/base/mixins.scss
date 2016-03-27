@@ -8,6 +8,16 @@
 	height: $height;
 }
 
+@mixin lineHeight($fontSize, $lineHeight) {
+	font-size: $fontSize;
+	line-height: $lineHeight / $fontSize; 
+}
+
+@mixin inlineBlock($align: top) {
+	display: inline-block;
+	vertical-align: $align;
+}
+
 @mixin fontSmoothing($value:on){
 	@if $value == on{
 		-webkit-font-smoothing:antialiased;
